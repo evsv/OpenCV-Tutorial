@@ -4,9 +4,9 @@ import numpy as np
 KKNDHLI_L0 = cv2.imread('KKNDHLI_L0.jpg')
 K_124 = cv2.imread('KKNDHLI_124.jpg')
 K_118 = cv2.imread('KKNDHLI_118.jpg')
-cv2.imshow('test_118', K_124)
-cv2.imshow('test_124', K_118)
-cv2.waitKey(0)
+#cv2.imshow('test_118', K_124)
+#cv2.imshow('test_124', K_118)
+#cv2.waitKey(0)
 
 #Splitting the given images into BGR intensity images
 K_118_B, K_118_G, K_118_R = cv2.split(K_118)
@@ -37,4 +37,12 @@ cv2.imshow('SobelX', K_118_B_sobelx)
 cv2.imshow('SobelY', K_118_B_sobely)
 cv2.imshow('Original', K_118)
 cv2.imshow('BlueChannel',K_118_B)
+cv2.waitKey(0)
+
+#Using the Canny Edge Detection
+K_118_B_Canny_50 = cv2.Canny(K_118_B,50,100,L2gradient=True)
+K_118_B_Canny_100 = cv2.Canny(K_118_B,100,100,L2gradient=True)
+cv2.imshow('CannyTest_50', K_118_B_Canny_50)
+cv2.imshow('CannyTest_100', K_118_B_Canny_100)
+cv2.imshow('Original', K_118_B)
 cv2.waitKey(0)
